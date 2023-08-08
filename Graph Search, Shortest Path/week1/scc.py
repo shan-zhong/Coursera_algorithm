@@ -85,7 +85,7 @@ def DFS(node):
     print ('end with func DFS whole time: '+ str(time.time() - start)+ 's')
     
 DFS_Loop()
-print ('DFS_Loop time: '+ str(time.time() - start)+ 's')
+# print('DFS_Loop time: '+ str(time.time() - start)+ 's')
 
 
 ##reverse tail and head data
@@ -120,10 +120,10 @@ data_set_v = new_v
 #print data_set_u
 #print data_set_v
 
-print ('reverse data time: '+ str(time.time() - start)+ 's')
+print('reverse data time: '+ str(time.time() - start)+ 's')
 
 DFS_Loop()
-print ('DFS_Loop time: '+ str(time.time() - start)+ 's')
+print('DFS_Loop time: '+ str(time.time() - start)+ 's')
 
 #print leader
 
@@ -145,7 +145,7 @@ while len(leader) > 0:
     #print 'count_list: '+ str(count_list)
     indices = [i for i, x in enumerate(leader) if x == leader[0]]
     #print 'indices: '+ str(indices)
-    for i in xrange(len(indices)):
+    for i in range(len(indices)):
         #print 'leader before del: '+ str(leader)
         del leader[leader.index(leader[0])]
         #print 'leader after del: '+ str(leader)
@@ -155,5 +155,9 @@ while len(leader) > 0:
 # print 'calc time: '+ str(time.time() - start)+ 's'
 
 sorted_count_list = sorted(count_list, key=int, reverse=True)
-print (sorted_count_list[0:5])
+
+print(sorted_count_list[0:5])
 # print datetime.datetime.now()
+with open('result.txt', 'w') as output:
+    for row in sorted_count_list[:5]:
+        output.write(str(row)+'\n')
